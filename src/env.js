@@ -11,9 +11,15 @@ export const env = createEnv({
       process.env.NODE_ENV === "production"
         ? z.string()
         : z.string().optional(),
-    AUTH_DISCORD_ID: z.string(),
-    AUTH_DISCORD_SECRET: z.string(),
     DATABASE_URL: z.string().url(),
+    DIRECT_URL: z.string().url(),
+    AUTH_URL: z.string().url().optional(),
+    NEXTAUTH_URL: z.string().url().optional(),
+    NEXTAUTH_SECRET: z.string().optional(),
+    PAYMENT_MODE: z.string().optional(),
+    APP_URL: z.string().url().optional(),
+    UPLOAD_PROVIDER: z.string().optional(),
+    EMAIL_FROM: z.string().optional(),
     NODE_ENV: z
       .enum(["development", "test", "production"])
       .default("development"),
@@ -34,9 +40,15 @@ export const env = createEnv({
    */
   runtimeEnv: {
     AUTH_SECRET: process.env.AUTH_SECRET,
-    AUTH_DISCORD_ID: process.env.AUTH_DISCORD_ID,
-    AUTH_DISCORD_SECRET: process.env.AUTH_DISCORD_SECRET,
     DATABASE_URL: process.env.DATABASE_URL,
+    DIRECT_URL: process.env.DIRECT_URL,
+    AUTH_URL: process.env.AUTH_URL,
+    NEXTAUTH_URL: process.env.NEXTAUTH_URL,
+    NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
+    PAYMENT_MODE: process.env.PAYMENT_MODE,
+    APP_URL: process.env.APP_URL,
+    UPLOAD_PROVIDER: process.env.UPLOAD_PROVIDER,
+    EMAIL_FROM: process.env.EMAIL_FROM,
     NODE_ENV: process.env.NODE_ENV,
   },
   /**
